@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Aplica a todos los enlaces <a> */
+  a {
+    text-decoration: none;
+  }
+}
+
+body {
+  font-family: 'Libre Caslon Display', sans-serif;
+}
+
+@layer base {
+  .font-libre {
+    font-family: 'Libre Caslon Display', serif;
+  }
+}
