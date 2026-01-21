@@ -1,0 +1,42 @@
+---
+const libros = [
+  {
+    title: "El libro falso 1",
+    author: "Autor Uno",
+    price: 4500,
+    slug: "el-libro-falso-1",
+    cover: "https://via.placeholder.com/300x450"
+  },
+  {
+    title: "El libro falso 2",
+    author: "Autor Dos",
+    price: 6200,
+    slug: "el-libro-falso-2",
+    cover: "https://via.placeholder.com/300x450"
+  },
+  {
+    title: "El libro falso 3",
+    author: "Autor Tres",
+    price: 5100,
+    slug: "el-libro-falso-3",
+    cover: "https://via.placeholder.com/300x450"
+  }
+];
+---
+
+<section>
+  <h1>Tienda</h1>
+
+  <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+    {libros.map((libro) => (
+      <li>
+        <a href={`/tienda/${libro.slug}`}>
+          <img src={libro.cover} alt={libro.title} />
+          <h2>{libro.title}</h2>
+          <p>{libro.author}</p>
+          <strong>${libro.price}</strong>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
