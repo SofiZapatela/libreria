@@ -1,0 +1,54 @@
+---
+export function getStaticPaths() {
+  const libros = [
+    { slug: "el-libro-falso-1" },
+    { slug: "el-libro-falso-2" },
+    { slug: "el-libro-falso-3" },
+  ];
+
+  return libros.map((libro) => ({
+    params: { slug: libro.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const libros = [
+  {
+    title: "El libro falso 1",
+    author: "Autor Uno",
+    price: 4500,
+    description: "Descripción del libro falso 1.",
+    slug: "el-libro-falso-1",
+  },
+  {
+    title: "El libro falso 2",
+    author: "Autor Dos",
+    price: 6200,
+    description: "Descripción del libro falso 2.",
+    slug: "el-libro-falso-2",
+  },
+  {
+    title: "El libro falso 3",
+    author: "Autor Tres",
+    price: 5100,
+    description: "Descripción del libro falso 3.",
+    slug: "el-libro-falso-3",
+  },
+];
+
+const libro = libros.find((l) => l.slug === slug);
+---
+
+<section>
+  {libro ? (
+    <>
+      <h1>{libro.title}</h1>
+      <p><strong>Autor:</strong> {libro.author}</p>
+      <p>{libro.description}</p>
+      <p><strong>Precio:</strong> ${libro.price}</p>
+    </>
+  ) : (
+    <p>Libro no encontrado</p>
+  )}
+</section>
